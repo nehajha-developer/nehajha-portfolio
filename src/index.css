@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background: #020617;
+  }
+
+  body {
+    @apply bg-bg text-ink font-sans antialiased;
+  }
+
+  /* Visible keyboard focus everywhere (accessibility) */
+  :focus-visible {
+    outline: 2px solid #00D9FF;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: #2563EB;
+    color: #fff;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-navy/40 backdrop-blur-md border border-royal/30 rounded-xl;
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-medium transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-royal text-white hover:bg-royal/90 hover:-translate-y-0.5;
+  }
+
+  .btn-ghost {
+    @apply btn border border-royal/50 text-cyan-os hover:border-cyan-os hover:-translate-y-0.5;
+  }
+
+  .chip {
+    @apply rounded border border-royal/40 bg-navy px-2 py-0.5 font-mono text-[11px] text-cyan-os;
+  }
+}
+
+/* Respect users who ask for less motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

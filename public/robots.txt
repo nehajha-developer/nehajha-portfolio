@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+# ✏️ EDIT: replace with your real deployed URL
+Sitemap: https://your-site.vercel.app/sitemap.xml
