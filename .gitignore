@@ -1,5 +1,82 @@
-node_modules
-dist
+# ==========================================
+# DEPENDENCIES
+# ==========================================
+node_modules/
+**/node_modules/
+
+# ==========================================
+# BUILD OUTPUT
+# ==========================================
+dist/
+build/
+out/
+coverage/
+
+# ==========================================
+# ENVIRONMENT VARIABLES / SECRETS
+# ==========================================
 .env
-.env.local
+.env.*
+!.env.example
+!.env.*.example
+
+# ==========================================
+# LOG FILES
+# ==========================================
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ==========================================
+# OPERATING SYSTEM FILES
+# ==========================================
 .DS_Store
+Thumbs.db
+Desktop.ini
+
+# ==========================================
+# EDITORS AND IDEs
+# ==========================================
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ==========================================
+# TESTING AND TOOL CACHES
+# ==========================================
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+
+# ==========================================
+# VITE
+# ==========================================
+.vite/
+
+# ==========================================
+# TEMPORARY FILES
+# ==========================================
+tmp/
+temp/
+*.tmp
+*.bak
+
+# ==========================================
+# LOCAL DATABASES AND CERTIFICATES
+# ==========================================
+*.sqlite
+*.sqlite3
+*.pem
+*.key
+*.p12
+*.pfx
