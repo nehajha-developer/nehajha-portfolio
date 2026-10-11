@@ -1,4 +1,4 @@
-
+import me from "../assets/me.png";
 const profile = {
   name: "Neha Jha",
   initials: "NJ", 
@@ -12,7 +12,7 @@ const profile = {
   github: "https://github.com/nehajha-developer", 
   linkedin: "", 
 
-  photo: "public/me.png", 
+  photo: me, 
 
   resume: "", 
 
