@@ -1,44 +1,50 @@
-// ============================================================
-// ✏️ EDIT THIS FILE FIRST. Your personal details live here.
-// Every component reads from this file, so you never need to
-// touch the UI code to change your name, links or resume.
-// ============================================================
 
 const profile = {
-  name: "Your Name",                       // ✏️ EDIT
-  initials: "YN",                          // ✏️ EDIT
-  role: "Full-Stack Developer",            // ✏️ EDIT
-  tagline: "I build practical digital products using modern web technologies.",
-  location: "Gujarat, India",              // ✏️ EDIT
+  name: "Neha Jha",
+  initials: "NJ", 
+  role: "MERN Stack Developer", 
+  tagline: "I build responsive, scalable web applications with the MERN stack.",
+  location: "Gujarat, India", 
 
-  // Contact. The form in Step 9 sends messages to the email tied to your form key.
-  email: "your@email.com",                 // ✏️ EDIT
+ 
+  email: "jha813306@gmail.com", 
+  phone: "", 
+  github: "https://github.com/nehajha-developer", 
+  linkedin: "", 
 
-  // Leave a link as "" to hide its button/icon automatically (no fake links).
-  github: "https://github.com/yourusername",        // ✏️ EDIT
-  linkedin: "https://linkedin.com/in/yourusername", // ✏️ EDIT
+  photo: "public/me.png", 
 
-  // Put your PDF in the /public folder, e.g. public/resume.pdf, then use "/resume.pdf".
-  resume: "",                              // ✏️ EDIT (empty = hides the button)
+  resume: "", 
 
-  // Shown in the About status card
+
   status: {
-    building: "Full-stack web applications",   // ✏️ EDIT
-    learning: "System design and testing",     // ✏️ EDIT
-    improving: "Writing cleaner, faster code", // ✏️ EDIT
+    building: "Web applications at Anshum Diamond Jewellery",
+    learning: "JavaScript and AI-assisted development", 
+    improving: "Application performance and clean code",
   },
 
-  // Short traits shown in the About terminal
-  traits: ["Problem Solver", "Frontend Developer", "Full-Stack Learner", "Product Builder", "Continuous Learner"],
-
-  // Short bio, keep it to 2 or 3 lines
+  
+  traits: [
+    "Problem Solver",
+    "MERN Stack Developer",
+    "Prompt Engineering",
+    "Product Builder",
+    "Continuous Learner",
+  ],
   about:
-    "I enjoy building practical digital products, learning modern technologies and turning ideas into working applications.",
+    "Detail-oriented MERN Stack Developer building responsive, scalable web applications. I use AI tools such as ChatGPT, Google Gemini and GitHub Copilot for code generation, optimization and documentation.",
 
-  educationField: "Computer Engineering", // ✏️ EDIT
+  educationField: "Computer Engineering",
+  achievements: [
+    "Winner, Shark Tank GECM (college level), for the UniSign startup idea",
+    "SSIP grant recipient under the Student Startup & Innovation Policy",
+    "Proof of Concept approved by the Government of Gujarat for UniSign",
+  ],
+  certifications: [
+    "Prompt Engineering, AWS Skill Builder",
+    "Artificial Intelligence Foundations, IBM SkillsBuild",
+  ],
 
-  // SEO values live in index.html (title and description). Update both places.
-  siteUrl: "https://your-site.vercel.app", // ✏️ EDIT after deploying
 };
 
 export default profile;

@@ -1,10 +1,20 @@
 import { useState, useCallback } from "react";
-import { AnimatePresence } from "framer-motion";
-import profile from "./data/profile";
-import projects from "./data/projects";
-import skills from "./data/skills";
+import { AnimatePresence, MotionConfig } from "framer-motion";
 import BootScreen from "./components/BootScreen";
 import SystemToast from "./components/SystemToast";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Education from "./components/Education";
+import Experience from "./components/Experience";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import AmbientBackground from "./components/ui/AmbientBackground";
+import ScrollProgress from "./components/ui/ScrollProgress";
+import SectionIndicator from "./components/ui/SectionIndicator";
+import CursorGlow from "./components/ui/CursorGlow";
 import { readSession, writeSession } from "./utils/session";
 
 const BOOT_KEY = "dos-booted"; // boot shows once per browser session
@@ -20,20 +30,30 @@ export default function App() {
   }, []);
 
   return (
-    <>
+    // reducedMotion="user": Framer Motion skips movement for visitors who prefer less motion
+    <MotionConfig reducedMotion="user">
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[110] focus:rounded focus:bg-royal focus:px-4 focus:py-2">
+        Skip to content
+      </a>
+      <AmbientBackground />
       <AnimatePresence>{!booted && <BootScreen key="boot" onEnter={handleEnter} />}</AnimatePresence>
       <SystemToast show={justEntered} />
+      <ScrollProgress />
+      <SectionIndicator />
+      <CursorGlow />
 
-      {/* Placeholder content. Real sections are added in the next steps. */}
-      <main className="min-h-screen grid place-items-center p-6">
-        <div className="glass p-8 max-w-md w-full font-mono text-sm">
-          <p className="text-cyan-os">● SYSTEM ONLINE (setup check)</p>
-          <p className="mt-3">name: {profile.name}</p>
-          <p>role: {profile.role}</p>
-          <p>projects loaded: {projects.length}</p>
-          <p>skill groups loaded: {skills.length}</p>
-        </div>
+      <Navbar />
+
+      <main id="main">
+        <Hero play={booted} />
+        <About />
+        <Education />
+        <Experience />
+        <Skills />
+        <Projects />
+        <Contact />
       </main>
-    </>
+      <Footer />
+    </MotionConfig>
   );
 }

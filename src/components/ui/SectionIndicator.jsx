@@ -1,6 +1,6 @@
 import useActiveSection from "../../hooks/useActiveSection";
 
-// ✏️ Side indicator (large screens only). Ids must match the section ids.
+
 const ITEMS = [
   { id: "about", label: "INTRO" },
   { id: "education", label: "EDUCATION" },

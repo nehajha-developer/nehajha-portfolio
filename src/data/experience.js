@@ -1,28 +1,25 @@
-// ✏️ EDIT: placeholder experience. Replace with your real roles, dates and work.
-// Do NOT add achievements or numbers that are not true. Recruiters do check.
+
 const experience = [
   {
-    id: "exp-1",
+    id: "anshum",
     commit: "2026",
-    company: "Company Name",
-    position: "Full-Time Developer",
-    duration: "20XX — Present",
+    company: "Diamond Rensu",
+    position: "Front-end Developer", 
+    duration: "Feb 2026 — Present",
     responsibilities: [
-      "Describe one real responsibility here.",
-      "Describe another real responsibility here.",
+      "Developed web applications using React and TypeScript.",
+      "Built and integrated REST APIs while optimizing application performance.",
+      "Collaborated using Git/GitHub and Agile development practices.",
     ],
-    technologies: ["React", "Node.js", "MongoDB"],
-    achievement: "", // optional, leave empty if you have nothing factual to add
-  },
-  {
-    id: "exp-2",
-    commit: "2025",
-    company: "Company Name",
-    position: "Full-Stack Development Intern",
-    duration: "20XX — 20XX",
-    responsibilities: ["Describe one real responsibility here."],
-    technologies: ["React", "Express"],
-    achievement: "",
+    technologies: [
+      "React",
+      "TypeScript",
+      "REST APIs",
+      "Git",
+      "GitHub",
+    ],
+    achievement:
+      "Received a full-time offer for strong technical performance and project contributions.",
   },
 ];
 
