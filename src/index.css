@@ -6,13 +6,23 @@
   html {
     scroll-behavior: smooth;
     background: #020617;
+    -webkit-text-size-adjust: 100%;
   }
-
   body {
-    @apply bg-bg text-ink font-sans antialiased;
+    @apply text-ink font-sans antialiased;
+    overflow-x: hidden;
   }
 
-  /* Visible keyboard focus everywhere (accessibility) */
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
   :focus-visible {
     outline: 2px solid #00D9FF;
     outline-offset: 3px;
@@ -26,28 +36,109 @@
 }
 
 @layer components {
-  .glass {
-    @apply bg-navy/40 backdrop-blur-md border border-royal/30 rounded-xl;
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.22em] text-cyan-os;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-white via-slate-100 to-cyan-os bg-clip-text text-transparent;
+  }
+
+  .card {
+    @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all duration-300;
+  }
+
+  .card-hover:hover {
+    border-color: rgba(0, 217, 255, 0.4);
+    box-shadow: 0 0 0 1px rgba(0, 217, 255, 0.15), 0 20px 50px -20px rgba(37, 99, 235, 0.55);
   }
 
   .btn {
-    @apply inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-medium transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-medium transition-all duration-200;
   }
 
   .btn-primary {
-    @apply btn bg-royal text-white hover:bg-royal/90 hover:-translate-y-0.5;
+    @apply btn bg-gradient-to-b from-royal to-blue-700 text-white hover:-translate-y-0.5;
+    box-shadow: 0 8px 24px -10px rgba(37, 99, 235, 0.9);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 12px 32px -10px rgba(0, 217, 255, 0.55);
   }
 
   .btn-ghost {
-    @apply btn border border-royal/50 text-cyan-os hover:border-cyan-os hover:-translate-y-0.5;
+    @apply btn border border-white/15 bg-white/[0.03] text-ink hover:-translate-y-0.5 hover:border-cyan-os/60 hover:text-cyan-os;
   }
 
   .chip {
-    @apply rounded border border-royal/40 bg-navy px-2 py-0.5 font-mono text-[11px] text-cyan-os;
+    @apply inline-flex items-center rounded-md border border-royal/40 bg-navy/70 px-2 py-0.5 font-mono text-[11px] text-cyan-os;
+  }
+
+  .field {
+    @apply w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-base text-ink placeholder:text-slate-500 transition-colors focus:border-cyan-os focus:outline-none focus:ring-2 focus:ring-cyan-os/30;
   }
 }
 
-/* Respect users who ask for less motion */
+/* Faint engineering-paper grid, fades out toward the edges */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 25%, #000 25%, transparent 80%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 25%, #000 25%, transparent 80%);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes scrolldot {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s steps(1) infinite;
+}
+
+.animate-float {
+  animation: float 7s ease-in-out infinite;
+}
+
+.animate-scrolldot {
+  animation: scrolldot 1.4s ease-out infinite;
+}
+
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -57,6 +148,7 @@
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }

@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
-// ✏️ EDIT: the lines shown while "booting". Keep it to about 4 lines so it stays short.
 const BOOT_LINES = [
   "Loading developer_profile...",
   "Loading projects...",
@@ -9,8 +8,8 @@ const BOOT_LINES = [
   "Loading skills...",
 ];
 
-const TICK_MS = 40;   // ✏️ speed: lower = faster. Total boot time is about 1.6s.
-const TICK_STEP = 2.5; // percent added per tick
+const TICK_MS = 40;   
+const TICK_STEP = 2.5; 
 
 export default function BootScreen({ onEnter }) {
   const reduceMotion = useReducedMotion();
@@ -18,7 +17,6 @@ export default function BootScreen({ onEnter }) {
   const enterRef = useRef(null);
   const ready = progress >= 100;
 
-  // Fill the progress bar (instant when the visitor prefers reduced motion)
   useEffect(() => {
     if (reduceMotion) { setProgress(100); return; }
     const id = setInterval(() => {
@@ -30,17 +28,17 @@ export default function BootScreen({ onEnter }) {
     return () => clearInterval(id);
   }, [reduceMotion]);
 
-  // Lock page scroll while the boot screen is open
+ 
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = prev; };
   }, []);
 
-  // Move keyboard focus to the Enter button when ready
+  
   useEffect(() => { if (ready) enterRef.current?.focus(); }, [ready]);
 
-  // Escape skips the boot at any time
+ 
   useEffect(() => {
     const onKey = (e) => { if (e.key === "Escape") onEnter(); };
     window.addEventListener("keydown", onKey);
