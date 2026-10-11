@@ -1,3 +1,4 @@
+
 name: Deploy Portfolio to GitHub Pages
 
 on:
@@ -33,6 +34,8 @@ jobs:
 
       - name: Build portfolio
         run: npm run build
+        env:
+          VITE_WEB3FORMS_KEY: ${{ secrets.VITE_WEB3FORMS_KEY }}
 
       - name: Upload build
         uses: actions/upload-pages-artifact@v3
